@@ -4,3 +4,11 @@
 <h1 align="center">
   React - Dash
 </h1>
+
+## **Tech Stack**
+- ReactJS
+- Electron - desktop app
+- MySql - database
+
+## **Application**
+Dashboard
