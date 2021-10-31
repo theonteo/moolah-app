@@ -10,5 +10,12 @@
 - Electron - desktop app
 - MySql - database
 
-## **Application**
+## **Pages**
+- Home page
 - Dashboard
+
+
+## **Custom Components**
+- Button
+- Drop down menu
+- 

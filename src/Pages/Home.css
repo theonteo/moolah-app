@@ -1,0 +1,48 @@
+.Home-Background
+{
+    display: flex;
+        
+  
+}
+.Home-Logo
+{
+    display: flex;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+}
+.Home-Tagline
+{
+    color: white;
+    font-family:   Arial, sans-serif;
+    font-weight:100;
+    font-size: 1.rem;
+}
+.Home-Button {
+    padding-top: 40px;
+    }
+.Home-Container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(144, 19, 19);
+}
+
+.Home-Board {
+    background-color:  #136af6;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Home-Title {
+    height: 40vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
