@@ -1,11 +1,8 @@
 /*****************************************************************************/
 /*!
 \file Intro.js
-\author Theon Teo
-\par email: theonteo96@gmail.com
 \date 2021
 \brief
-This project contains point-cloud application
 \Not for distribution
 */
 /*****************************************************************************/

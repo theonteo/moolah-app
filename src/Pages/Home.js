@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-\file index.js
+\file Home.js
 \date 2021
 \brief
 \Not for distribution
@@ -8,12 +8,15 @@
 /*****************************************************************************/
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import '../Global.css';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+
+function Home()
+{
+    return (
+        <>
+           
+        </>
+    );
+}
+export default Home;

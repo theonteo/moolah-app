@@ -1,11 +1,8 @@
 /*****************************************************************************/
 /*!
 \file App.js
-\author Theon Teo
-\par email: theonteo96@gmail.com
 \date 2021
 \brief
-This project contains point-cloud application
 \Not for distribution
 */
 /*****************************************************************************/
@@ -15,7 +12,7 @@ import { BrowserRouter as Router, Switch, Route }
   from "react-router-dom";
 
 import './App.css';
-import Home from "./Components/Pages/Home"
+import Home from "./Pages/Home";
 //renders html
 function App()
 {
