@@ -8,41 +8,40 @@
 /*****************************************************************************/
 
 import React from 'react';
-import '../Global.css';
-import './Home.css'
 import { Button } from '../Components/Interaction/Button';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
+
+
+function Copyright()
+{
+    return (
+        <Typography variant="body2" color="text.secondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit" href="https://mui.com/">
+                Your Website
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+        </Typography>
+    );
+}
+
 
 function Home()
 {
     return (
         <>
-            <div className="Home-Container">
-               
-                    <div className="Home-Board">
-                        <div className="Home-Background">
-                           
-                        </div>
-                        <div className="Home-Logo">
-                            MOOLAH.
-                        </div>
-                        <div className="Home-Tagline">
-                            Take control of your money.
-                        </div>
-                 
-                </div>
-                <div className="Home-Title">
-                    <div className="Global-Heading">
-                        Mindful spending.
-                    </div>
-                    <div className="Global-Text">
-                        Never miss another dollar again.
-                    </div>
-                    <div className="Home-Button">
-                        <Button >Lets get started </Button>
-                    </div>
-                </div>
-
-            </div>
+            <Container maxWidth="sm">
+                <Box sx={{ my: 4 }}>
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        Create React App v5 example
+                    </Typography>
+                    <Copyright />
+                </Box>
+            </Container>
         </>
     );
 }

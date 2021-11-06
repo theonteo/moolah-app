@@ -11,11 +11,9 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route }
   from "react-router-dom";
 
-import './App.css';
-
 //store all pages
 import Home from "./Pages/Home";
-import Dashboard from "./Pages/Dashboard";
+
 //renders html
 function App()
 {
@@ -24,7 +22,6 @@ function App()
       <Router>
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/' exact component={Dashboard} />
         </Switch>
       </Router>
     </div>
