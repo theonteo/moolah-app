@@ -15,8 +15,7 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
 
-function Copyright()
-{
+export const Copyright : React.FC = () => {
     return (
         <Typography variant="body2" color="text.secondary" align="center">
             {'Copyright © '}
@@ -30,19 +29,21 @@ function Copyright()
 }
 
 
-function Home()
+export default class Home extends React.Component
 {
-    return (
-        <>
-            <Container maxWidth="sm">
-                <Box sx={{ my: 4 }}>
-                    <Typography variant="h4" component="h1" gutterBottom>
-                        Create React App v5 example
-                    </Typography>
-                    <Copyright />
-                </Box>
-            </Container>
-        </>
-    );
+    render()
+    {
+        return (
+            <>
+                <Container maxWidth="sm">
+                    <Box sx={{ my: 4 }}>
+                        <Typography variant="h4" component="h1" gutterBottom>
+                            Create React App v5 example
+                        </Typography>
+                        <Copyright />
+                    </Box>
+                </Container>
+            </>
+        );
+    }
 }
-export default Home;
