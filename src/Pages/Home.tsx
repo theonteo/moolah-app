@@ -53,7 +53,7 @@ export default class Home extends React.Component
                     <Typography gutterBottom>
                         Never miss another dollar again
                     </Typography>
-                    <Link  href="/Summary">
+                    <Link  href="/Instructions">
                         <Button variant="contained"> Lets Get Started</Button>
                     </Link>
                     <Copyright />

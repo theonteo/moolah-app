@@ -113,7 +113,7 @@ const SummaryCard: React.FC<props> = () =>
                 <Button variant="contained" onClick={sendToServer}>I'm all set!</Button>
             </Box>
             <Link to="/">
-                <Button variant="text" >Back</Button>
+                <Button variant="text">Back</Button>
             </Link>
         </Grid>
 
