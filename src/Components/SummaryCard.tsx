@@ -9,9 +9,9 @@ import { TextField } from "@mui/material";
 import { Grid } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { color } from "@mui/system";
 
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
 interface props
 {
     budgetType: string;
@@ -25,13 +25,12 @@ const SummaryCard: React.FC<props> = () =>
         ...theme.typography.button,
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(1),
-    }));
+      }));
 
 
 
     return (
-        <Box>
-
+        
         <Grid
             container
             spacing={0}
@@ -40,7 +39,8 @@ const SummaryCard: React.FC<props> = () =>
             justifyContent="center"
             style={{ minHeight: '100vh' }}
         >
-           
+             <Card sx={{ minWidth: 275 }}>
+      <CardContent>
                 <Grid style={{ width: '40vw'} } container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     <Grid item xs={6}>
                         <Typography color="inherit">Budget Type:</Typography>
@@ -76,12 +76,15 @@ const SummaryCard: React.FC<props> = () =>
                         />
                     </Grid>
                 </Grid>
-               
+            
             <Typography variant="h4" component="h1" gutterBottom>
                 Budget Type
             </Typography>
-        </Grid >
-        </Box>
+            
+            </CardContent>
+            </Card>
+        </Grid>
+
     );
 };
 
