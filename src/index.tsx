@@ -17,7 +17,6 @@ import { ThemeProvider } from '@mui/material/styles';
 
 ReactDOM.render(
   <ThemeProvider theme={mainTheme}>
-    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
     <CssBaseline />
     <App />
   </ThemeProvider>,
