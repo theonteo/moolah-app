@@ -8,13 +8,12 @@
 /*****************************************************************************/
 
 import React from 'react';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-
-
-export const Copyright : React.FC = () => {
+import { Grid } from "@mui/material";
+import { Button } from '@mui/material';
+export const Copyright: React.FC = () =>
+{
     return (
         <Typography variant="body2" color="text.secondary" align="center">
             {'Copyright © '}
@@ -34,14 +33,32 @@ export default class Home extends React.Component
     {
         return (
             <>
-                <Container maxWidth="sm">
-                    <Box sx={{ my: 4 }}>
-                        <Typography variant="h4" component="h1" gutterBottom>
-                            Create React App v5 example
-                        </Typography>
-                        <Copyright />
-                    </Box>
-                </Container>
+                <Grid
+                    container
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    style={{ minHeight: '100vh' }}
+                >
+                    <Typography variant="h2" component="h1"
+                gutterBottom fontFamily='jost' fontWeight='bold'>
+                        Moolah
+                    </Typography>
+
+                    <Typography variant="h4" component="h1"
+                gutterBottom fontFamily='jost' fontWeight='bold'>
+                        Mindful Spending
+                    </Typography>
+                    <Typography gutterBottom>
+                        Never miss another dollar again
+                    </Typography>
+                    <Link  href="/Summary">
+                        <Button variant="contained"> Lets Get Started</Button>
+                    </Link>
+                    <Copyright />
+                </Grid>
+
             </>
         );
     }

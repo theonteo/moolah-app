@@ -1,6 +1,5 @@
 import React from "react";
 import SummaryCard from "../Components/SummaryCard";
-import FormControlLabel from '@mui/material/FormControlLabel';
 
 export default class SummaryPage extends React.Component
 {

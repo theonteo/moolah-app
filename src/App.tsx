@@ -14,7 +14,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import SummaryPage from "./Pages/SummaryPage";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
 const theme = createTheme({
   palette: {
     mode: 'dark',
