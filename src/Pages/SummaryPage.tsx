@@ -1,6 +1,6 @@
 import React from "react";
 import SummaryCard from "../Components/SummaryCard";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { themeDark } from "../Theme/Theme";
 
 import { Link } from 'react-router-dom';

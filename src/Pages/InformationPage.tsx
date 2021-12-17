@@ -1,17 +1,15 @@
 import React from "react";
 import SummaryCard from "../Components/SummaryCard";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { themeDark } from "../Theme/Theme";
 
 import { Link } from 'react-router-dom';
-import { Box } from "@mui/system";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from "@mui/material";
 
 export default class InformationPage extends React.Component
 {
-
     render()
     {
         return (

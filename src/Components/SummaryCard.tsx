@@ -42,7 +42,7 @@ const SummaryCard: React.FC<props> =
                     <TextField
                         id="standard-required"
                         label="Enter Budget tag here"
-                        defaultValue={budgetType}
+                        defaultValue={mbudgetType}
                         variant="standard"
                         value={budgetType}
                         onChange={InputChangeSetBudgetType}
@@ -60,7 +60,7 @@ const SummaryCard: React.FC<props> =
                     <TextField
                         id="standard-required"
                         label="Enter Budget here"
-                        defaultValue={budgetValue}
+                        defaultValue={mbudgetValue}
                         variant="standard"
                         type="number"
                         inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
@@ -68,7 +68,7 @@ const SummaryCard: React.FC<props> =
                     />)
             } else
             {
-                return (<Typography>{budgetValue}</Typography>)
+                return (<Typography>{mbudgetValue}</Typography>)
             }
         }
         const renderSavingsGoal = () =>
@@ -78,7 +78,7 @@ const SummaryCard: React.FC<props> =
                 return (<TextField
                     id="standard-required"
                     label="Enter savings goal here"
-                    defaultValue={savingsGoal}
+                    defaultValue={msavingsGoal}
                     variant="standard"
                     type="number"
                     inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
@@ -86,7 +86,7 @@ const SummaryCard: React.FC<props> =
                 />)
             } else
             {
-                return (<Typography>{savingsGoal}</Typography>)
+                return (<Typography>{msavingsGoal}</Typography>)
             }
         }
 
@@ -94,8 +94,8 @@ const SummaryCard: React.FC<props> =
         {
             if(!result)
             {
-                return 
-                (  <FormControlLabel control={<Checkbox defaultChecked />}
+                return ( 
+                <FormControlLabel control={<Checkbox defaultChecked />}
                     label="Repeat this budget every month?" />)
             }else{
                 

@@ -88,7 +88,7 @@ export const InstructionsPage: React.FC = () =>
                                     {
                                         <Card sx={{
                                             margin: '3px',
-                                            width: (pg == pageValue) ? 15 : 10,
+                                            width: (pg === pageValue) ? 15 : 10,
                                             height: 10,
                                             backgroundColor: 'primary.dark',
                                             '&:hover': {
