@@ -5,15 +5,16 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 
-const connectionString = process.env.DATABASE_URL || '';
-// TODO: write inside the .env file and use the connectionString var
 const connection = mysql.createConnection({
-    host: 'us-cdbr-east-04.cleardb.com',
-    user: 'b6ce105c12adf5',
-    password: 'fe7ea5b6',
-    database: 'heroku_58f13569eb38541'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PWD,
+    database: process.env.DB_NAME
 });
 connection.connect();
+
+//const budgetsRoute = require('./routes/Budgets');
+//app.use('/budget', budgetsRoute);
 
 // get all
 app.get('/', (req: Request, res: Response) => {
@@ -38,3 +39,5 @@ app.listen(port, () => {
     console.log('Moolah API is Running! 👍');
     console.log(`Sender is listening on port ${port}`)
 });
+
+module.exports = connection;
