@@ -104,13 +104,13 @@ const SummaryCard: React.FC<props> =
 
         return (
             <>
-                <Card sx={{ minWidth: 275 }}>
+                <Card >
                     <CardContent>
                         <Grid style={{
                             alignItems: "center",
                             justifyContent: "center",
                             padding: '20px',
-                            width: '40vw'
+                            width: '60vw'
                         }}
                             container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                             <Grid item xs={6}>
