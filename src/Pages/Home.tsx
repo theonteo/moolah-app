@@ -14,30 +14,15 @@ import { Grid } from "@mui/material";
 import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider} from '@mui/material/styles';
 import { Box } from '@mui/system';
-import axios from "axios";
+import  '../Theme/Theme';
+import { themeDark, themeLight } from '../Theme/Theme';
 
-
-export default class Home extends React.Component {
-    render() {
-
-        const themeDark = createTheme({
-            palette: {
-                mode: 'dark',
-            },
-        });
-        const themeLight = createTheme({
-            palette: {
-                mode: 'light',
-            },
-        });
-
-        const onClick = () => {
-            axios.get(`http://localhost:5000/budget`).then((response: { data: any; }) => {
-                console.log("data is", response.data);
-        })};
-
+export default class Home extends React.Component
+{
+    render()
+    {
         return (
             <>
                 <ThemeProvider theme={themeDark}>
@@ -84,9 +69,6 @@ export default class Home extends React.Component {
                             <Link href="/Instructions">
                                 <Button variant="contained"> Lets Get Started</Button>
                             </Link>
-                            <Button style={{ width: '60%' }} variant="contained" onClick={onClick} >
-                                Test Get Request
-                            </Button>
                         </Grid>
                     </ThemeProvider>
                 </ThemeProvider>
