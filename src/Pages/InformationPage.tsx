@@ -34,7 +34,7 @@ export default class InformationPage extends React.Component
                             budgetValue={1}
                             savingsGoal={1}
                             repeatGoal={true}
-                            result={false}>
+                            result={true}>
                         </SummaryCard>
 
                         <Link to="/">

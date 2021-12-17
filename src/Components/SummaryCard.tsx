@@ -22,92 +22,90 @@ interface props
 }
 
 const SummaryCard: React.FC<props> =
- ({budgetType,budgetValue,savingsGoal ,repeatGoal,result}:props) =>
-{
-    //use states
-    const [mbudgetType, setBudgetType] = React.useState<String>(budgetType);
-    const [mbudgetValue, setBudgetValue] = React.useState<Number>(budgetValue);
-    const [msavingsGoal, setSavingsGoal] = React.useState<Number>(savingsGoal);
-
-    const InputChangeSetBudgetType = (event: any) => { setBudgetType(event.target.value); };
-    const InputChangeSetBudgetValue = (event: any) => { setBudgetValue(event.target.value); };
-    const InputChangeSetSavingsGoal = (event: any) => { setSavingsGoal(event.target.value); };
-
-
-    const renderBudget = () =>
+    ({ budgetType, budgetValue, savingsGoal, repeatGoal, result }: props) =>
     {
-        <TextField
+        //use states
+        const [mbudgetType, setBudgetType] = React.useState<String>(budgetType);
+        const [mbudgetValue, setBudgetValue] = React.useState<Number>(budgetValue);
+        const [msavingsGoal, setSavingsGoal] = React.useState<Number>(savingsGoal);
 
-        id="standard-required"
-        label="Enter Budget tag here"
-        defaultValue={budgetType}
-        variant="standard"
-        value={budgetType}
-        onChange={InputChangeSetBudgetType}
-    />
-    }
-    return (
-        <>
-            <Card sx={{ minWidth: 275 }}>
-                <CardContent>
-                    <Grid style={{
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: '20px',
-                        width: '40vw'
-                    }}
-                        container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                        <Grid item xs={6}>
-                            <Typography color="inherit">Budget Type:</Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-
-                                id="standard-required"
-                                label="Enter Budget tag here"
-                                defaultValue={budgetType}
-                                variant="standard"
-                                value={budgetType}
-                                onChange={InputChangeSetBudgetType}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography variant="body1">Budget:</Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="standard-required"
-                                label="Enter Budget here"
-                                defaultValue={budgetValue}
-                                variant="standard"
-                                type="number"
-                                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                                onChange={InputChangeSetBudgetValue}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography>Savings goal:</Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <TextField
-                                id="standard-required"
-                                label="Enter savings goal here"
-                                defaultValue={savingsGoal}
-                                variant="standard"
-                                type="number"
-                                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                                onChange={InputChangeSetSavingsGoal}
-                            />
-                        </Grid>
-                    </Grid>
-                </CardContent>
-            </Card>
-            <FormControlLabel control={<Checkbox defaultChecked />}
-                label="Repeat this budget every month?" />
-           </>
+        const InputChangeSetBudgetType = (event: any) => { setBudgetType(event.target.value); };
+        const InputChangeSetBudgetValue = (event: any) => { setBudgetValue(event.target.value); };
+        const InputChangeSetSavingsGoal = (event: any) => { setSavingsGoal(event.target.value); };
 
 
-    );
-};
+        const renderBudgetType = () =>
+        {
+            if (!result)
+            {
+                return (
+                    <TextField
+                        id="standard-required"
+                        label="Enter Budget tag here"
+                        defaultValue={budgetType}
+                        variant="standard"
+                        value={budgetType}
+                        onChange={InputChangeSetBudgetType}
+                    />)
+            } else
+            {
+                return (<Typography>{budgetType}</Typography>)
+            }
+        }
+        return (
+            <>
+                <Card sx={{ minWidth: 275 }}>
+                    <CardContent>
+                        <Grid style={{
+                            alignItems: "center",
+                            justifyContent: "center",
+                            padding: '20px',
+                            width: '40vw'
+                        }}
+                            container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                            <Grid item xs={6}>
+                                <Typography color="inherit">Budget Type:</Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                {renderBudgetType()}
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography variant="body1">Budget:</Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    id="standard-required"
+                                    label="Enter Budget here"
+                                    defaultValue={budgetValue}
+                                    variant="standard"
+                                    type="number"
+                                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                                    onChange={InputChangeSetBudgetValue}
+                                />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Typography>Savings goal:</Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <TextField
+                                    id="standard-required"
+                                    label="Enter savings goal here"
+                                    defaultValue={savingsGoal}
+                                    variant="standard"
+                                    type="number"
+                                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                                    onChange={InputChangeSetSavingsGoal}
+                                />
+                            </Grid>
+                        </Grid>
+                    </CardContent>
+                </Card>
+                <FormControlLabel control={<Checkbox defaultChecked />}
+                    label="Repeat this budget every month?" />
+            </>
+
+
+        );
+    };
 
 export default SummaryCard;
