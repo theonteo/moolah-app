@@ -16,6 +16,7 @@ connection.connect();
 //const budgetsRoute = require('./routes/Budgets');
 //app.use('/budget', budgetsRoute);
 
+//TODO: should be abstracted to another file in routes folder
 // get all
 app.get('/', (req: Request, res: Response) => {
     const query = 'SELECT * FROM budgets';
