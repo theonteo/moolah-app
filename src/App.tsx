@@ -15,6 +15,7 @@ import Home from "./Pages/Home";
 import SummaryPage from "./Pages/SummaryPage";
 import SetPage from "./Pages/SetPage";
 import InstructionsPage from "./Pages/InstructionsPage";
+import InformationPage from "./Pages/InformationPage";
 
 //renders html
 const App: React.FC = () => {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
           <Route path='/' exact component={Home} />
           <Route path='/Summary' exact component={SummaryPage} />
           <Route path='/Instructions' exact component={InstructionsPage} />
+          <Route path='/Information' exact component={InformationPage} />
           <Route path='/Set' exact component={SetPage} />
         </Switch>
       </Router>

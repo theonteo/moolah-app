@@ -3,14 +3,12 @@ import React from "react";
 
 import Typography from '@mui/material/Typography';
 import { TextField } from "@mui/material";
-import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
-import Button from '@mui/material/Button';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { Link } from 'react-router-dom';
 
 import '../Global.css'
 
@@ -20,37 +18,36 @@ interface props
     budgetValue: Number;
     savingsGoal: Number;
     repeatGoal: Boolean;
+    result: Boolean;
 }
 
-const SummaryCard: React.FC<props> = () =>
+const SummaryCard: React.FC<props> =
+ ({budgetType,budgetValue,savingsGoal ,repeatGoal,result}:props) =>
 {
     //use states
-    const [budgetType, setBudgetType] = React.useState<String>("Food");
-    const [budgetValue, setBudgetValue] = React.useState<Number>(0);
-    const [savingsGoal, setSavingsGoal] = React.useState<Number>(0);
-  
+    const [mbudgetType, setBudgetType] = React.useState<String>(budgetType);
+    const [mbudgetValue, setBudgetValue] = React.useState<Number>(budgetValue);
+    const [msavingsGoal, setSavingsGoal] = React.useState<Number>(savingsGoal);
+
     const InputChangeSetBudgetType = (event: any) => { setBudgetType(event.target.value); };
     const InputChangeSetBudgetValue = (event: any) => { setBudgetValue(event.target.value); };
     const InputChangeSetSavingsGoal = (event: any) => { setSavingsGoal(event.target.value); };
 
-    //on button press - send to server
-    const sendToServer = () =>
-    {
-    }
 
+    const renderBudget = () =>
+    {
+        <TextField
+
+        id="standard-required"
+        label="Enter Budget tag here"
+        defaultValue={budgetType}
+        variant="standard"
+        value={budgetType}
+        onChange={InputChangeSetBudgetType}
+    />
+    }
     return (
-        <Grid
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            style={{ minHeight: '100vh' }}
-        >
-            <Typography variant="h4" component="h1"
-                gutterBottom fontFamily='jost' fontWeight='bold'>
-                One Last Thing...
-            </Typography>
+        <>
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
                     <Grid style={{
@@ -107,13 +104,7 @@ const SummaryCard: React.FC<props> = () =>
             </Card>
             <FormControlLabel control={<Checkbox defaultChecked />}
                 label="Repeat this budget every month?" />
-            <Box m={1} pt={2}>
-                <Button variant="contained" onClick={sendToServer}>I'm all set!</Button>
-            </Box>
-            <Link to="/">
-                <Button variant="text">Back</Button>
-            </Link>
-        </Grid>
+           </>
 
 
     );

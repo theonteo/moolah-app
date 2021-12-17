@@ -9,13 +9,9 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from "@mui/material";
 
-export default class SummaryPage extends React.Component
+export default class InformationPage extends React.Component
 {
 
-    //on button press - send to server
-    sendToServer = () =>
-    {
-    }
     render()
     {
         return (
@@ -31,7 +27,7 @@ export default class SummaryPage extends React.Component
                     >
                         <Typography variant="h4" component="h1"
                             gutterBottom fontFamily='jost' fontWeight='bold'>
-                            One Last Thing...
+                            See your budgets!
                         </Typography>
                         <SummaryCard
                             budgetType=" Essentials "
@@ -41,14 +37,8 @@ export default class SummaryPage extends React.Component
                             result={false}>
                         </SummaryCard>
 
-                        <Box m={1} pt={2}>
-                            <Button variant="contained" onClick={this.sendToServer}>I'm all set!</Button>
-                        </Box>
                         <Link to="/">
                             <Button variant="text">Back to Home</Button>
-                        </Link>
-                        <Link to="/Information">
-                            <Button variant="text">See information</Button>
                         </Link>
                     </Grid>
                 </ThemeProvider>

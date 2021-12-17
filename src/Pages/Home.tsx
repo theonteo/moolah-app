@@ -16,28 +16,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Box } from '@mui/system';
-
+import  '../Theme/Theme';
+import { themeDark, themeLight } from '../Theme/Theme';
 
 export default class Home extends React.Component
 {
     render()
     {
-
-        const themeDark = createTheme({
-            palette: {
-                mode: 'dark',
-            },
-        });
-        const themeLight = createTheme({
-            palette: {
-                mode: 'light',
-            },
-        });
-
         return (
             <>
                 <ThemeProvider theme={themeDark}>
-                    <Card style = {{borderRadius:'0px'}} sx={{ minWidth: 275 }}>
+                    <Card style={{ borderRadius: '0px' }} sx={{ minWidth: 275 }}>
                         <CardContent>
 
                             <Grid
