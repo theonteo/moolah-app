@@ -15,17 +15,11 @@ import Home from "./Pages/Home";
 import SummaryPage from "./Pages/SummaryPage";
 import SetPage from "./Pages/SetPage";
 import InstructionsPage from "./Pages/InstructionsPage";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+
 //renders html
 const App: React.FC = () => {
   return (
     <div className='main'>
-      <ThemeProvider theme={theme}>
       <Router>
         <Switch>
           <Route path='/' exact component={Home} />
@@ -34,7 +28,6 @@ const App: React.FC = () => {
           <Route path='/Set' exact component={SetPage} />
         </Switch>
       </Router>
-      </ThemeProvider>
     </div>
   );
 }

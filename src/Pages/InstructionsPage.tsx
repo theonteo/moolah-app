@@ -28,14 +28,14 @@ export const InstructionsPage: React.FC = () =>
             justifyContent="center"
             style={{ minHeight: '100vh' }}
         >
-            <Typography variant="h2" component="h1">
+            <Typography variant="h4" component="h1" fontFamily='jost' fontWeight = "bold">
                 {InstructionGroup[pageValue].title}
             </Typography>
-            <Typography variant="h4" component="h1">
+            <Typography style={{width :'80%' ,paddingBottom:'20%'}} variant="body1" component="h1">
                 {InstructionGroup[pageValue].instruction}
             </Typography>
 
-            <Button variant="contained" onClick={() =>
+            <Button style = {{width:'60%'}} variant= "contained" onClick={() =>
             {
                 setPageValue(pageValue + 1);
 

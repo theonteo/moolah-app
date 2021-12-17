@@ -36,9 +36,7 @@ const SummaryCard: React.FC<props> = () =>
     //on button press - send to server
     const sendToServer = () =>
     {
-    
     }
-
 
     return (
         <Grid
