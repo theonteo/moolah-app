@@ -52,6 +52,44 @@ const SummaryCard: React.FC<props> =
                 return (<Typography>{budgetType}</Typography>)
             }
         }
+        const renderBudget = () =>
+        {
+            if (!result)
+            {
+                return (
+                    <TextField
+                        id="standard-required"
+                        label="Enter Budget here"
+                        defaultValue={budgetValue}
+                        variant="standard"
+                        type="number"
+                        inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                        onChange={InputChangeSetBudgetValue}
+                    />)
+            } else
+            {
+                return (<Typography>{budgetValue}</Typography>)
+            }
+        }
+        const renderSavingsGoal = () =>
+        {
+            if (!result)
+            {
+                return (<TextField
+                    id="standard-required"
+                    label="Enter savings goal here"
+                    defaultValue={savingsGoal}
+                    variant="standard"
+                    type="number"
+                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
+                    onChange={InputChangeSetSavingsGoal}
+                />)
+            } else
+            {
+                return (<Typography>{savingsGoal}</Typography>)
+            }
+        }
+
         return (
             <>
                 <Card sx={{ minWidth: 275 }}>
@@ -73,29 +111,13 @@ const SummaryCard: React.FC<props> =
                                 <Typography variant="body1">Budget:</Typography>
                             </Grid>
                             <Grid item xs={6}>
-                                <TextField
-                                    id="standard-required"
-                                    label="Enter Budget here"
-                                    defaultValue={budgetValue}
-                                    variant="standard"
-                                    type="number"
-                                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                                    onChange={InputChangeSetBudgetValue}
-                                />
+                                {renderBudget()}
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography>Savings goal:</Typography>
                             </Grid>
                             <Grid item xs={6}>
-                                <TextField
-                                    id="standard-required"
-                                    label="Enter savings goal here"
-                                    defaultValue={savingsGoal}
-                                    variant="standard"
-                                    type="number"
-                                    inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                                    onChange={InputChangeSetSavingsGoal}
-                                />
+                                {renderSavingsGoal()}
                             </Grid>
                         </Grid>
                     </CardContent>
@@ -103,8 +125,6 @@ const SummaryCard: React.FC<props> =
                 <FormControlLabel control={<Checkbox defaultChecked />}
                     label="Repeat this budget every month?" />
             </>
-
-
         );
     };
 
