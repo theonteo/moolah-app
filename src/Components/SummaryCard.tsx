@@ -24,6 +24,7 @@ interface props
 const SummaryCard: React.FC<props> =
     ({ budgetType, budgetValue, savingsGoal, repeatGoal, result }: props) =>
     {
+        
         //use states
         const [mbudgetType, setBudgetType] = React.useState<String>(budgetType);
         const [mbudgetValue, setBudgetValue] = React.useState<Number>(budgetValue);
@@ -91,13 +92,14 @@ const SummaryCard: React.FC<props> =
 
         const renderBudgetCheckBox = () =>
         {
-            if(!result)
+            if (!result)
             {
-                return ( 
-                <FormControlLabel control={<Checkbox defaultChecked />}
-                    label="Repeat this budget every month?" />)
-            }else{
-                
+                return (
+                    <FormControlLabel control={<Checkbox defaultChecked />}
+                        label="Repeat this budget every month?" />)
+            } else
+            {
+
             }
         }
 
