@@ -90,6 +90,18 @@ const SummaryCard: React.FC<props> =
             }
         }
 
+        const renderBudgetCheckBox = () =>
+        {
+            if(!result)
+            {
+                return 
+                (  <FormControlLabel control={<Checkbox defaultChecked />}
+                    label="Repeat this budget every month?" />)
+            }else{
+                
+            }
+        }
+
         return (
             <>
                 <Card sx={{ minWidth: 275 }}>
@@ -122,8 +134,7 @@ const SummaryCard: React.FC<props> =
                         </Grid>
                     </CardContent>
                 </Card>
-                <FormControlLabel control={<Checkbox defaultChecked />}
-                    label="Repeat this budget every month?" />
+                {renderBudgetCheckBox()}
             </>
         );
     };
