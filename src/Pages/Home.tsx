@@ -64,8 +64,21 @@ export default class Home extends React.Component
                             direction="column"
                             alignItems="center"
                             justifyContent="center"
-                            style={{ height: '40vh' }}
+                            style={{ height: '50vh' }}
                         >
+                             < Box
+                                component="img"
+                                sx={{
+                                    zIndex:5,
+                                    position: "absolute",
+                                    height: "400px",
+                                    width: "300px",
+                                    bottom:"10vh"
+
+                                }}
+                                alt="The house from the offer."
+                                src="man.png"
+                            />
                             < Box
                                 component="img"
                                 sx={{
@@ -77,6 +90,18 @@ export default class Home extends React.Component
                                 }}
                                 alt="The house from the offer."
                                 src="bg-white.png"
+                            />
+                               < Box
+                                component="img"
+                                sx={{
+                                    zIndex:-2,
+                                    position: "absolute",
+                                    height: "48vh",
+                                    width: "100vw",
+
+                                }}
+                                alt="The house from the offer."
+                                src="bg-blue.png"
                             />
                             <Typography variant="h4" component="h1"
                                 gutterBottom fontFamily='jost' fontWeight='bold' color="black">
