@@ -9,8 +9,23 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from "@mui/material";
 
+interface props
+{
+    budgetType: string;
+    budgetValue: Number;
+    savingsGoal: Number;
+    repeatGoal: Boolean;
+    result: Boolean;
+}
 export default class SummaryPage extends React.Component
 {
+
+    private summaryProps: props =
+        {
+            "budgetType": "Spend within budget", "budgetValue": 0, "savingsGoal": 0,
+            "repeatGoal": false, "result": false
+        };
+
 
     //on button press - send to server
     sendToServer = () =>
@@ -34,11 +49,11 @@ export default class SummaryPage extends React.Component
                             One Last Thing...
                         </Typography>
                         <SummaryCard
-                            budgetType=" Essentials "
-                            budgetValue={1}
-                            savingsGoal={1}
-                            repeatGoal={true}
-                            result={false}>
+                            budgetType={this.summaryProps.budgetType}
+                            budgetValue={this.summaryProps.budgetValue}
+                            savingsGoal={this.summaryProps.savingsGoal}
+                            repeatGoal={this.summaryProps.repeatGoal}
+                            result={this.summaryProps.result}>
                         </SummaryCard>
 
                         <Box m={1} pt={2}>
