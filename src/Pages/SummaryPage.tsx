@@ -9,30 +9,43 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from "@mui/material";
 
-interface props
-{
+import Axios from "axios";
+
+interface props {
     budgetType: string;
     budgetValue: Number;
     savingsGoal: Number;
     repeatGoal: Boolean;
     result: Boolean;
 }
-export default class SummaryPage extends React.Component
-{
+
+export default class SummaryPage extends React.Component {
 
     private summaryProps: props =
         {
-            "budgetType": "Spend within budget", "budgetValue": 0, "savingsGoal": 0,
-            "repeatGoal": false, "result": false
+            budgetType: "Essentials",
+            budgetValue: 0,
+            savingsGoal: 0,
+            repeatGoal: false,
+            result: false
         };
 
 
     //on button press - send to server
-    sendToServer = () =>
-    {
+    sendToServer = () => {
+        //TODO: should be done using env
+        console.log("posting", this.summaryProps);
+        Axios.post(`https://moolah-app-backend.herokuapp.com/budgets`, {
+            budget_type: this.summaryProps.budgetType,
+            budget_amount: this.summaryProps.budgetValue,
+            saving_goal: this.summaryProps.savingsGoal,
+            repeat_budget: this.summaryProps.repeatGoal
+        }).then(response => {
+            console.log(response)
+        });
+
     }
-    render()
-    {
+    render() {
         return (
             <div>
                 <ThemeProvider theme={themeDark}>
