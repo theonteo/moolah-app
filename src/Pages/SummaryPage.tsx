@@ -18,34 +18,41 @@ interface props {
     repeatGoal: Boolean;
     result: Boolean;
 }
+const summaryProps: props =
+{
+    budgetType: "Essentials",
+    budgetValue: 0,
+    savingsGoal: 0,
+    repeatGoal: false,
+    result: false
+};
+ export const SummaryPage: React.FC = () =>
+{
 
-export default class SummaryPage extends React.Component {
+   
+    const [mbudgetType, setBudgetType] = React.useState<String>(summaryProps.budgetType);
+    const [mbudgetValue, setBudgetValue] = React.useState<Number>(summaryProps.budgetValue);
+    const [msavingsGoal, setSavingsGoal] = React.useState<Number>(summaryProps.savingsGoal);
 
-    private summaryProps: props =
-        {
-            budgetType: "Essentials",
-            budgetValue: 0,
-            savingsGoal: 0,
-            repeatGoal: false,
-            result: false
-        };
+    const InputChangeSetBudgetType = (event: any) => { setBudgetType(event.target.value); };
+    const InputChangeSetBudgetValue = (event: any) => { setBudgetValue(event.target.value); };
+    const InputChangeSetSavingsGoal = (event: any) => { setSavingsGoal(event.target.value); };
 
 
     //on button press - send to server
-    sendToServer = () => {
+    const sendToServer = () => {
         //TODO: should be done using env
-        console.log("posting", this.summaryProps);
+        console.log("posting", summaryProps);
         Axios.post(`https://moolah-app-backend.herokuapp.com/budgets`, {
-            budget_type: this.summaryProps.budgetType,
-            budget_amount: this.summaryProps.budgetValue,
-            saving_goal: this.summaryProps.savingsGoal,
-            repeat_budget: this.summaryProps.repeatGoal
+            budget_type: summaryProps.budgetType,
+            budget_amount: summaryProps.budgetValue,
+            saving_goal: summaryProps.savingsGoal,
+            repeat_budget: summaryProps.repeatGoal
         }).then(response => {
             console.log(response)
         });
-
     }
-    render() {
+ 
         return (
             <div>
                 <ThemeProvider theme={themeDark}>
@@ -62,15 +69,15 @@ export default class SummaryPage extends React.Component {
                             One Last Thing...
                         </Typography>
                         <SummaryCard
-                            budgetType={this.summaryProps.budgetType}
-                            budgetValue={this.summaryProps.budgetValue}
-                            savingsGoal={this.summaryProps.savingsGoal}
-                            repeatGoal={this.summaryProps.repeatGoal}
-                            result={this.summaryProps.result}>
+                            budgetType={summaryProps.budgetType}
+                            budgetValue={summaryProps.budgetValue}
+                            savingsGoal={summaryProps.savingsGoal}
+                            repeatGoal={summaryProps.repeatGoal}
+                            result={summaryProps.result}>
                         </SummaryCard>
 
                         <Box m={1} pt={2}>
-                            <Button variant="contained" onClick={this.sendToServer}>I'm all set!</Button>
+                            <Button variant="contained" onClick={sendToServer}>I'm all set!</Button>
                         </Box>
                         <Link to="/">
                             <Button variant="text">Back to Home</Button>
@@ -82,5 +89,6 @@ export default class SummaryPage extends React.Component {
                 </ThemeProvider>
             </div>
         );
-    }
 }
+
+export default SummaryPage;

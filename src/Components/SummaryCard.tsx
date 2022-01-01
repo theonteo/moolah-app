@@ -11,29 +11,21 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 import '../Global.css'
+import { SummaryPage } from "../Pages/SummaryPage";
 
-interface props
-{
+interface props {
     budgetType: string;
     budgetValue: Number;
     savingsGoal: Number;
     repeatGoal: Boolean;
     result: Boolean;
 }
-
 const SummaryCard: React.FC<props> =
     ({ budgetType, budgetValue, savingsGoal, repeatGoal, result }: props) =>
     {
         
         //use states
-        const [mbudgetType, setBudgetType] = React.useState<String>(budgetType);
-        const [mbudgetValue, setBudgetValue] = React.useState<Number>(budgetValue);
-        const [msavingsGoal, setSavingsGoal] = React.useState<Number>(savingsGoal);
-
-        const InputChangeSetBudgetType = (event: any) => { setBudgetType(event.target.value); };
-        const InputChangeSetBudgetValue = (event: any) => { setBudgetValue(event.target.value); };
-        const InputChangeSetSavingsGoal = (event: any) => { setSavingsGoal(event.target.value); };
-
+        
 
         const renderBudgetType = () =>
         {
@@ -44,12 +36,12 @@ const SummaryCard: React.FC<props> =
                         id="standard-required"
                         label="Enter Budget tag here"
                         variant="standard"
-                        value={mbudgetType}
-                        onChange={InputChangeSetBudgetType}
+                        value={budgetType}
+                        //onChange={InputChangeSetBudgetType}
                     />)
             } else
             {
-                return (<Typography>{mbudgetType}</Typography>)
+                return (<Typography>{budgetType}</Typography>)
             }
         }
         const renderBudget = () =>
@@ -60,15 +52,15 @@ const SummaryCard: React.FC<props> =
                     <TextField
                         id="standard-required"
                         label="Enter Budget here"
-                        value={mbudgetValue}
+                        value={budgetValue}
                         variant="standard"
                         type="number"
                         inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                        onChange={InputChangeSetBudgetValue}
+                       // onChange={InputChangeSetBudgetValue}
                     />)
             } else
             {
-                return (<Typography>{mbudgetValue}</Typography>)
+                return (<Typography>{budgetValue}</Typography>)
             }
         }
         const renderSavingsGoal = () =>
@@ -78,15 +70,15 @@ const SummaryCard: React.FC<props> =
                 return (<TextField
                     id="standard-required"
                     label="Enter savings goal here"
-                    value={msavingsGoal}
+                    value={savingsGoal}
                     variant="standard"
                     type="number"
                     inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                    onChange={InputChangeSetSavingsGoal}
+                    //onChange={InputChangeSetSavingsGoal}
                 />)
             } else
             {
-                return (<Typography>{msavingsGoal}</Typography>)
+                return (<Typography>{savingsGoal}</Typography>)
             }
         }
 
