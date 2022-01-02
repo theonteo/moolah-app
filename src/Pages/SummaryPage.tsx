@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SummaryCard from "../Components/SummaryCard";
 import { ThemeProvider } from '@mui/material/styles';
 import { themeDark } from "../Theme/Theme";
@@ -18,7 +18,7 @@ interface props {
     repeatGoal: Boolean;
     result: Boolean;
 }
-export const summaryProps: props =
+export let summaryProps: props =
 {
     budgetType: "Essentials",
     budgetValue: 0,
@@ -26,6 +26,7 @@ export const summaryProps: props =
     repeatGoal: false,
     result: false
 };
+
 export const SummaryPage: React.FC = () => {
 
     const [mbudgetType, setBudgetType] = React.useState<String>("");
@@ -36,6 +37,7 @@ export const SummaryPage: React.FC = () => {
     const InputChangeSetBudgetType = async function (event: any) {
         await setBudgetType(event.target.value);
         summaryProps.budgetType = mbudgetType;
+
     };
     const InputChangeSetBudgetValue = async function (event: any) {
         await setBudgetValue(event.target.value);
@@ -49,6 +51,16 @@ export const SummaryPage: React.FC = () => {
         await setRepeatGoal(event.target.checked);
         summaryProps.repeatGoal = mrepeatGoal;
     };
+
+    useEffect(() => {
+        summaryProps = {
+            budgetType: mbudgetType,
+            budgetValue: mbudgetValue,
+            savingsGoal: msavingsGoal,
+            repeatGoal: mrepeatGoal,
+            result: false
+        };
+    }, [summaryProps]);
 
     //on button press - send to server
     const sendToServer = () => {
