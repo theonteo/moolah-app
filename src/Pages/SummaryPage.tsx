@@ -11,8 +11,7 @@ import { Grid } from "@mui/material";
 
 import Axios from "axios";
 
-interface props
-{
+interface props {
     budgetType: string;
     budgetValue: Number;
     savingsGoal: Number;
@@ -27,42 +26,35 @@ const summaryProps: props =
     repeatGoal: false,
     result: false
 };
-export const SummaryPage: React.FC = () =>
-{
+export const SummaryPage: React.FC = () => {
 
 
-    const [mbudgetType, setBudgetType] = React.useState<string>(summaryProps.budgetType);
-    const [mbudgetValue, setBudgetValue] = React.useState<Number>(summaryProps.budgetValue);
-    const [msavingsGoal, setSavingsGoal] = React.useState<Number>(summaryProps.savingsGoal);
+    const [mbudgetType, setBudgetType] = React.useState<String>("");
+    const [mbudgetValue, setBudgetValue] = React.useState<Number>(0);
+    const [msavingsGoal, setSavingsGoal] = React.useState<Number>(0);
+    const [mrepeatGoal, setRepeatGoal] = React.useState<Boolean>(false);
 
-    const InputChangeSetBudgetType = (event: any) =>
-    {
-        setBudgetType(event.target.value);
-        summaryProps.budgetType = mbudgetType;
+    const InputChangeSetBudgetType = async function (event: any) {
+        await setBudgetType(event.target.value);
     };
-    const InputChangeSetBudgetValue = (event: any) =>
-    {
-        setBudgetValue(event.target.value);
-        summaryProps.budgetValue = mbudgetValue;
+    const InputChangeSetBudgetValue = async function (event: any) {
+        await setBudgetValue(event.target.value);
     };
-    const InputChangeSetSavingsGoal = (event: any) =>
-    {
-        setSavingsGoal(event.target.value);
-        summaryProps.savingsGoal = msavingsGoal;
+    const InputChangeSetSavingsGoal = async function (event: any) {
+        await setSavingsGoal(event.target.value);
+    };
+    const InputChangeSetRepeatGoal = async function (event: any) {
+        await setRepeatGoal(event.target.checked);
     };
 
     //on button press - send to server
-    const sendToServer = () =>
-    {
-        //TODO: should be done using env
-        console.log("posting", summaryProps);
+    const sendToServer = () => {
         Axios.post(`https://moolah-app-backend.herokuapp.com/budgets`, {
-            budget_type: summaryProps.budgetType,
-            budget_amount: summaryProps.budgetValue,
-            saving_goal: summaryProps.savingsGoal,
-            repeat_budget: summaryProps.repeatGoal
-        }).then(response =>
-        {
+            budget_type: mbudgetType,
+            budget_amount: mbudgetValue,
+            saving_goal: msavingsGoal,
+            repeat_budget: mrepeatGoal
+        }).then(response => {
             console.log(response)
         });
     }
@@ -92,6 +84,7 @@ export const SummaryPage: React.FC = () =>
                         InputChangeSetBudgetTypeEvent={InputChangeSetBudgetType}
                         InputChangeSetBudgetValueEvent={InputChangeSetBudgetValue}
                         InputChangeSetSavingsGoalEvent={InputChangeSetSavingsGoal}
+                        InputChangeSetRepeatGoalEvent={InputChangeSetRepeatGoal}
                     >
                     </SummaryCard>
 

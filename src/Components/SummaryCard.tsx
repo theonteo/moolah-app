@@ -11,8 +11,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 import '../Global.css'
-interface props
-{
+interface props {
 
     //data variables
     budgetType: string;
@@ -25,83 +24,77 @@ interface props
     InputChangeSetBudgetTypeEvent: any;
     InputChangeSetBudgetValueEvent: any;
     InputChangeSetSavingsGoalEvent: any;
+    InputChangeSetRepeatGoalEvent: any;
 
 }
 const SummaryCard: React.FC<props> =
     ({ budgetType,
-         budgetValue, 
-         savingsGoal,
-          repeatGoal,
-           result,
-           InputChangeSetBudgetTypeEvent,
-           InputChangeSetBudgetValueEvent,
-           InputChangeSetSavingsGoalEvent
-         }: props) =>
-    {
-        
+        budgetValue,
+        savingsGoal,
+        repeatGoal,
+        result,
+        InputChangeSetBudgetTypeEvent,
+        InputChangeSetBudgetValueEvent,
+        InputChangeSetSavingsGoalEvent,
+        InputChangeSetRepeatGoalEvent
+    }: props) => {
+
         //use states
-        const renderBudgetType = () =>
-        {
-            if (!result)
-            {
+        const renderBudgetType = () => {
+            if (!result) {
                 return (
                     <TextField
                         id="standard-required"
                         label="Enter Budget tag here"
                         variant="standard"
-                       
+
                         onChange={InputChangeSetBudgetTypeEvent}
                     />)
-            } else
-            {
+            } else {
                 return (<Typography>{budgetType}</Typography>)
             }
         }
-        const renderBudget = () =>
-        {
-            if (!result)
-            {
+        const renderBudget = () => {
+            if (!result) {
                 return (
                     <TextField
                         id="standard-required"
                         label="Enter Budget here"
-                        
+
                         variant="standard"
                         type="number"
                         inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
                         onChange={InputChangeSetBudgetValueEvent}
                     />)
-            } else
-            {
+            } else {
                 return (<Typography>{budgetValue}</Typography>)
             }
         }
-        const renderSavingsGoal = () =>
-        {
-            if (!result)
-            {
+        const renderSavingsGoal = () => {
+            if (!result) {
                 return (<TextField
                     id="standard-required"
                     label="Enter savings goal here"
-                    
+
                     variant="standard"
                     type="number"
                     inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                    onChange={ InputChangeSetSavingsGoalEvent}
+                    onChange={InputChangeSetSavingsGoalEvent}
                 />)
-            } else
-            {
+            } else {
                 return (<Typography>{savingsGoal}</Typography>)
             }
         }
 
-        const renderBudgetCheckBox = () =>
-        {
-            if (!result)
-            {
+        const renderBudgetCheckBox = () => {
+            if (!result) {
                 return (
-                    <FormControlLabel control={<Checkbox defaultChecked />}
+                    <FormControlLabel control={<Checkbox
+                        defaultChecked={false}
+                        onChange={InputChangeSetRepeatGoalEvent} />}
                         label="Repeat this budget every month?" />)
+            } else {
+                return (<Typography>{repeatGoal}</Typography>)
             }
         }
 
