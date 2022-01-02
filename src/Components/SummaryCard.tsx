@@ -14,7 +14,7 @@ import '../Global.css'
 interface props {
 
     //data variables
-    budgetType: string;
+    budgetType: String;
     budgetValue: Number;
     savingsGoal: Number;
     repeatGoal: Boolean;
