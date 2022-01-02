@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Box } from "@mui/system";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Grid } from "@mui/material";
+import { BackdropProps, Grid } from "@mui/material";
 
 import Axios from "axios";
 
@@ -28,7 +28,6 @@ const summaryProps: props =
 };
 export const SummaryPage: React.FC = () => {
 
-
     const [mbudgetType, setBudgetType] = React.useState<String>("");
     const [mbudgetValue, setBudgetValue] = React.useState<Number>(0);
     const [msavingsGoal, setSavingsGoal] = React.useState<Number>(0);
@@ -36,15 +35,19 @@ export const SummaryPage: React.FC = () => {
 
     const InputChangeSetBudgetType = async function (event: any) {
         await setBudgetType(event.target.value);
+        summaryProps.budgetType = mbudgetType as string;
     };
     const InputChangeSetBudgetValue = async function (event: any) {
         await setBudgetValue(event.target.value);
+        summaryProps.budgetValue = mbudgetValue as number;
     };
     const InputChangeSetSavingsGoal = async function (event: any) {
         await setSavingsGoal(event.target.value);
+        summaryProps.savingsGoal = msavingsGoal as number;
     };
     const InputChangeSetRepeatGoal = async function (event: any) {
         await setRepeatGoal(event.target.checked);
+        summaryProps.repeatGoal = mrepeatGoal as boolean;
     };
 
     //on button press - send to server
@@ -55,7 +58,7 @@ export const SummaryPage: React.FC = () => {
             saving_goal: msavingsGoal,
             repeat_budget: mrepeatGoal
         }).then(response => {
-            console.log(response)
+            console.log(response);
         });
     }
 
