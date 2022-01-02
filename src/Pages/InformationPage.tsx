@@ -32,7 +32,11 @@ export default class InformationPage extends React.Component
                             budgetValue={1}
                             savingsGoal={1}
                             repeatGoal={true}
-                            result={true}>
+                            result={true}
+                            InputChangeSetBudgetTypeEvent={null}
+                            InputChangeSetBudgetValueEvent={null}
+                            InputChangeSetSavingsGoalEvent={null}
+                            InputChangeSetRepeatGoalEvent={null}>
                         </SummaryCard>
 
                         <Link to="/">
