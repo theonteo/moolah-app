@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Box } from "@mui/system";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { BackdropProps, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import Axios from "axios";
 
@@ -35,19 +35,19 @@ export const SummaryPage: React.FC = () => {
 
     const InputChangeSetBudgetType = async function (event: any) {
         await setBudgetType(event.target.value);
-        summaryProps.budgetType = mbudgetType as string;
+        summaryProps.budgetType = mbudgetType;
     };
     const InputChangeSetBudgetValue = async function (event: any) {
         await setBudgetValue(event.target.value);
-        summaryProps.budgetValue = mbudgetValue as number;
+        summaryProps.budgetValue = mbudgetValue;
     };
     const InputChangeSetSavingsGoal = async function (event: any) {
         await setSavingsGoal(event.target.value);
-        summaryProps.savingsGoal = msavingsGoal as number;
+        summaryProps.savingsGoal = msavingsGoal;
     };
     const InputChangeSetRepeatGoal = async function (event: any) {
         await setRepeatGoal(event.target.checked);
-        summaryProps.repeatGoal = mrepeatGoal as boolean;
+        summaryProps.repeatGoal = mrepeatGoal;
     };
 
     //on button press - send to server
