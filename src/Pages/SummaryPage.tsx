@@ -36,20 +36,16 @@ export const SummaryPage: React.FC = () => {
 
     const InputChangeSetBudgetType = async function (event: any) {
         await setBudgetType(event.target.value);
-        summaryProps.budgetType = mbudgetType;
 
     };
     const InputChangeSetBudgetValue = async function (event: any) {
         await setBudgetValue(event.target.value);
-        summaryProps.budgetValue = mbudgetValue;
     };
     const InputChangeSetSavingsGoal = async function (event: any) {
         await setSavingsGoal(event.target.value);
-        summaryProps.savingsGoal = msavingsGoal;
     };
     const InputChangeSetRepeatGoal = async function (event: any) {
         await setRepeatGoal(event.target.checked);
-        summaryProps.repeatGoal = mrepeatGoal;
     };
 
     useEffect(() => {
