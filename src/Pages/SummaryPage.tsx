@@ -18,7 +18,7 @@ interface props {
     repeatGoal: Boolean;
     result: Boolean;
 }
-const summaryProps: props =
+export const summaryProps: props =
 {
     budgetType: "Essentials",
     budgetValue: 0,
