@@ -7,11 +7,10 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from "@mui/material";
+import { summaryProps } from "./SummaryPage";
 
-export default class InformationPage extends React.Component
-{
-    render()
-    {
+export default class InformationPage extends React.Component {
+    render() {
         return (
             <div>
                 <ThemeProvider theme={themeDark}>
@@ -28,10 +27,10 @@ export default class InformationPage extends React.Component
                             See your budgets!
                         </Typography>
                         <SummaryCard
-                            budgetType=" Essentials "
-                            budgetValue={1}
-                            savingsGoal={1}
-                            repeatGoal={true}
+                            budgetType={summaryProps.budgetType}
+                            budgetValue={summaryProps.budgetValue}
+                            savingsGoal={summaryProps.savingsGoal}
+                            repeatGoal={summaryProps.repeatGoal}
                             result={true}
                             InputChangeSetBudgetTypeEvent={null}
                             InputChangeSetBudgetValueEvent={null}
