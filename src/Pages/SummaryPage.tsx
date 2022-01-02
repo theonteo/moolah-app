@@ -12,7 +12,7 @@ import { BackdropProps, Grid } from "@mui/material";
 import Axios from "axios";
 
 interface props {
-    budgetType: String;
+    budgetType: string;
     budgetValue: Number;
     savingsGoal: Number;
     repeatGoal: Boolean;
